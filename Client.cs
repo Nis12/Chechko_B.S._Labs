@@ -12,7 +12,7 @@ namespace Lab1_client
         static string address = "127.0.0.1";
         static Socket socket;
         static bool work = true;
-        static Thread thread = new Thread(new System.Threading.ThreadStart(GetMessage));
+        static Thread thread = new Thread(new ThreadStart(GetMessage));
         static void Main(string[] args)
         {
             try
