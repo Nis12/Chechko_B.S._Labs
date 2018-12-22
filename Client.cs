@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading;
 
 namespace Lab1_client
 {
@@ -11,7 +12,7 @@ namespace Lab1_client
         static string address = "127.0.0.1";
         static Socket socket;
         static bool work = true;
-        static System.Threading.Thread thread = new System.Threading.Thread(new System.Threading.ThreadStart(GetMessage));
+        static Thread thread = new Thread(new System.Threading.ThreadStart(GetMessage));
         static void Main(string[] args)
         {
             try
@@ -43,6 +44,7 @@ namespace Lab1_client
             string message = null;
             while (work)
             {
+                Thread.Sleep(1000);
                 Print("Введите сообщение: ");
                 message = Console.ReadLine();
                 Console.WriteLine();
